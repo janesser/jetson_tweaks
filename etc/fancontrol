@@ -1,0 +1,9 @@
+## sudo DEBUG=1 fancontrol
+
+INTERVAL=10
+FCTEMPS=/sys/class/hwmon/hwmon1/target_pwm=/sys/class/hwmon/hwmon0/temp1_input
+MINTEMP=/sys/class/hwmon/hwmon1/target_pwm=23
+MAXTEMP=/sys/class/hwmon/hwmon1/target_pwm=40
+MINSTART=/sys/class/hwmon/hwmon1/target_pwm=20
+MINSTOP=/sys/class/hwmon/hwmon1/target_pwm=15
+MINPWM=0
