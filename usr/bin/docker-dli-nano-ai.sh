@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=v2.0.1-r32.5.0
+VERSION=v2.0.2-r32.7.1
 
 sudo systemctl restart nvargus-daemon 
 

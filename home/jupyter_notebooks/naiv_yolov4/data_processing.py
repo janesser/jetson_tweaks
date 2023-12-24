@@ -28,7 +28,7 @@ def load_label_categories(label_file_path):
     categories = [line.rstrip('\n') for line in open(label_file_path)]
     return categories
 
-LABEL_FILE_PATH = '/nvdli-nano/data/coco.names' # ORIG os.path.join(os.path.dirname(os.path.realpath(__file__)), 'coco_labels.txt')
+LABEL_FILE_PATH = '../data/coco.names' # ORIG os.path.join(os.path.dirname(os.path.realpath(__file__)), 'coco_labels.txt')
 ALL_CATEGORIES = load_label_categories(LABEL_FILE_PATH)
 
 # Let's make sure that there are 80 classes, as expected for the COCO data set:

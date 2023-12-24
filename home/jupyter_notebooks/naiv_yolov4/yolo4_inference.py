@@ -10,16 +10,13 @@ import random
 
 def image_ppreprocess(image_data, target_size):
     io_img = io.BytesIO(image_data)
-    pil_img = Image.open(io_img)
-    
-    np_img = np.array(pil_img, dtype=np.float32, order='C')
-    np_img = cv2.cvtColor(np_img, cv2.COLOR_RGB2BGR)
+    np_img = np.fromstring(io_img.getvalue(), dtype=np.uint8)
+    np_img = cv2.cvtColor(np_img, cv2.COLOR_BGR2RGB)
     
     pre_img = image_preprocess(np.copy(np_img), target_size)
     pre_img = pre_img[np.newaxis, ...].astype(np.float32)
     
     return (
-        pil_img,
         pre_img,
         np_img
     )
@@ -27,7 +24,7 @@ def image_ppreprocess(image_data, target_size):
 def image_preprocess(image, target_size, gt_boxes=None):
 
     ih, iw = target_size
-    h, w, _ = image.shape
+    h, w = image.shape[:2]
 
     scale = min(iw/w, ih/h)
     nw, nh = int(scale * w), int(scale * h)
